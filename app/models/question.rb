@@ -29,11 +29,12 @@ class Question < ApplicationRecord
     end
 
     def set_defaults
-        self.view_count || =0
+        self.view_count ||=0
     end
 
     def capitalize_title
-        sefl.title.capitalize!
+        self.title.capitalize!
+    end
  
 
 end

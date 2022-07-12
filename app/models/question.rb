@@ -3,6 +3,10 @@ class Question < ApplicationRecord
     after_initialize :set_defaults
     before_save :capitalize_title
 
+    has_many :answers, dependent: :destroy
+    #dependent :destroy/:nullify
+    
+
     validates :title, presence: {message:'must be provided'}, uniqueness: {scope: :body}, length: {minimum: 2, maximum: 200}
     validates :body, presence: true
     validates :view_count, numericality: {greate_than_or_equal_to: 0}

@@ -25,7 +25,8 @@ before_action :find_question, only: [:edit, :update, :show, :destroy]
     end
 
     def show
-        
+        @answers = @question.answers.order(created_at: :desc)
+        @answer = Answer.new
     end
 
 #========================update==========================
